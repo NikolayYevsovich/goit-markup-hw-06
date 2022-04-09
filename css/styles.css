@@ -581,7 +581,9 @@ img {
   width: 358px;
   padding: 15px 16px;
   margin: 0;
+  outline: transparent;
 }
+
 
 .sub-wrapper{
   margin-left: 93px;
@@ -596,7 +598,7 @@ img {
   line-height: 1.87;
   text-align: center;
   letter-spacing: 0.06em;  
-  color: #FFFFFF;
+  color: var(--sec-bg-font-color);
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
   border-radius: 4px;
@@ -645,7 +647,7 @@ img {
 
 .portfolio-btn:hover,
 .portfolio-btn:focus {
-  color: #ffffff;
+  color: var(--main-bg-color);
   background-color: var(--accent-color);
   cursor: pointer;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -752,13 +754,13 @@ img {
 
 .modal-wrapper {
   width: 528px;
-  height: 581px;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 40px;
 }
 
 .modal-btn {
@@ -779,11 +781,171 @@ img {
 
 .modal-btn:hover,
 .modal-btn:focus {
-  background-color: rgba(33, 150, 243, 0.9);
-  fill: var(--main-bg-color);
-  border: 1px solid var(--main-bg-color);
+  fill: var(--accent-color);
 }
 
+/* Форма в модальном окне */
+.backdrop-form{
+  width: 100%;
+}
+.form-title{
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+}
+.form-field{
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  position: relative;
+}
+.form-icon{
+  position: absolute;
+  left: 12px;
+  bottom: 11px;
+  transition: fill var(--anim-fast);
+}
+.input-field:focus + .form-icon{
+fill: var(--accent-color);
+}
+
+.field-name{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.01em;
+  color: #757575;
+  margin-bottom: 4px;
+  max-width: 30px;
+}
+.input-field{
+  margin: 0;
+  padding: 11px 41px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 5px;
+  outline: transparent;
+  transition: border-color var(--anim-fast) ;
+}
+.input-field:focus{
+  border-color: var(--accent-color);
+  cursor: pointer;
+}
+.input-field:not(:placeholder-shown) + .form-icon{
+  fill: var(--accent-color);
+}
+.input-field:not(:placeholder-shown){
+  border-color: var(--accent-color);
+}
+
+.textarea{
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+  outline: transparent;
+  transition: border-color var(--anim-fast);
+}
+.textarea:focus{
+  border-color: var(--accent-color);
+  cursor: pointer;
+}
+.form-field textarea::placeholder{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.textarea:not(:placeholder-shown){
+  border-color: var(--accent-color);
+}
+
+.policy-field{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.policy-icon{
+  position: absolute;
+  left: 13px;
+  bottom: 4px;
+  transition: opacity var(--anim-fast);
+}
+.policy-icon-checked{
+  position: absolute;
+  left: 13px;
+  bottom: 4px;
+  opacity: 0;
+  transition: opacity var(--anim-fast);
+}
+
+.form-checkbox{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.form-checkbox:checked + .policy-icon-box > .policy-icon{
+  opacity: 0;
+}
+.form-checkbox:checked+.policy-icon-box>.policy-icon-checked {
+  opacity: 1;
+}
+
+.policy-txt{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: #757575;
+ margin-left: 21px;
+}
+.policy-link{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  text-decoration-line: underline; 
+  color: var(--accent-color);
+}
+ 
+
+
+.btn-field{
+  display: flex;
+ justify-content: center;
+}
+.form-btn{
+  width: 200px;
+  background: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 55px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  transition: background-color var(--anim-fast) ;
+}
+.form-btn:hover,
+.form-btn:focus{
+  background-color: var(--hero-btn-accent);
+}
 /* Скрытие логических заголовков */
 .features-title,
 .portfolio-title {
